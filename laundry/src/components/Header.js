@@ -5,7 +5,7 @@ export default function Header() {
 
             <body>
                 <div>
-                    <img class = "logo" src="../../logo.jpg"></img>
+                    
                 </div>
             </body>
         </html>

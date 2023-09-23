@@ -1,5 +1,5 @@
 import { firestore } from "../firebase_setup/firebase";
-import { collection, query, where, getDocs } from "@firebase/firestore";
+import { collection, query, where, getDocs, getDoc, doc } from "@firebase/firestore";
 
 // Define a Firestore query handler function with a filter
 async function queryFirestoreCollectionByCollege(college) {
@@ -50,5 +50,27 @@ async function queryFirestoreCollectionByCollege(college) {
   }
 }
 
-export { queryFirestoreCollectionByCollege };
+
+async function queryFirestoreCollectionById(documentId) {
+  try {
+    // Reference the document by its ID
+    const documentRef = doc(firestore, "machines", documentId);
+
+    // Get the document data
+    const docSnapshot = await getDoc(documentRef);
+
+    if (docSnapshot.exists()) {
+      // Document exists, return its data
+      return docSnapshot.data();
+    } else {
+      // Document does not exist
+      throw new Error("Document not found");
+    }
+  } catch (error) {
+    console.error("Error getting document:", error);
+    throw error; // Rethrow the error for handling at a higher level if needed
+  }
+}
+
+export { queryFirestoreCollectionByCollege, queryFirestoreCollectionById };
 
