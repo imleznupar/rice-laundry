@@ -1,6 +1,7 @@
 
-import './home.css'
-export default function Lovett() {
+import './changestatus.css'
+export default function changestatus() {
+
     return (
         <html>
             <head>
@@ -10,30 +11,31 @@ export default function Lovett() {
             </head>
 
             <div class = "center">
-            <h2>Welcome to Laundry @ Rice</h2>
-            <img class = "home-logo" src="../../logo.jpg"/>
-            <h4>Find out which machines are available!</h4>
+            <img class = "lovett-logo" src="../../logos/Lovett\ Logo.jpeg"/>
+            <h2>Washer 1</h2>
             <form action="/action_page.php">
-                <label for="res coll">Residential College:</label>
-                <select name="res coll" id="res coll">
-                    <option value="baker">Baker</option>
-                    <option value="will rice">Will Rice</option>
-                    <option value="hanszen">Hanszen</option>
-                    <option value="wiess">Wiess</option>
-                    <option value="jones">Jones</option>
-                    <option value="brown">Brown</option>
-                    <option value="lovett">Lovett</option>
-                    <option value="sid richardson">Sid Richardson</option>
-                    <option value="martel">Martel</option>
-                    <option value="mcmurtry">McMurtry</option>
-                    <option value="duncan">Duncan</option>
+                <label for="changestatus">Change Status:</label>
+                <select name="changestatus" id="changestatus">
+                    <option value="Open">Open</option>
+                    <option value="In Use">In Use</option>
+                    <option value="Unavailable">Unavailable</option>
                 </select>
                 <br></br>
-                    <input class = "button" type="submit" value="START!"></input>
+                    <input class = "button1" type="submit" value="Change!"></input>
+                
                     </form>
-                    
+                    <form action="/action_page.php">
+                <label for="changestatus">Move To:</label>
+                <select name="changestatus" id="changestatus">
+                    <option value="Open">Dryer 1</option>
+                    <option value="In Use">Dryer 2</option>
+                    <option value="Unavailable">Dryer 3</option>
+                </select>
+                <br></br>
+                    <input class = "button2" type="submit" value="Change!"></input>
+                    </form>
 
             </div>
             </html>
-                    )
+    )
 }
