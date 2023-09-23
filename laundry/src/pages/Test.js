@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { queryFirestoreCollectionByCollege } from '../handle/handlequery'; // Import your Firestore query function
 import { updateMachineStatus } from '../handle/handleupdate'; // Import the updateMachineStatus function
+import Log from './Log'; // Import the Popup component
 
 function Test() {
     const status_1 = {
@@ -44,8 +45,16 @@ function Test() {
   const [queryWasherResults, setQueryWasherResults] = useState([]);
   const [queryDryerResults, setQueryDryerResults] = useState([]);
   const [loading, setLoading] = useState(true); // State to track loading status
-  const [popupVisible, setPopupVisible] = useState(false); // State to control popup visibility
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+
+  const openPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
 
   // Function to fetch and set the query results
   const fetchData = async () => {
@@ -76,10 +85,6 @@ function Test() {
     } catch (error) {
       console.error('Error updating machine status:', error);
     }
-  };
-
-  const togglePopup = () => {
-    setPopupVisible(!popupVisible);
   };
 
 
