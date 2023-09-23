@@ -20,7 +20,7 @@ function App() {
           <Route path="/Log" element = {<Log />}/>
           <Route path="/changestatus" element = {<Changestatus />}/>
           <Route path="/test/log" element = {<Log />}/>
-          <Route exact path="/washer-details/:id" element={<WasherDetails />} />
+          <Route exact path="/machine-details/:id" element={<WasherDetails />} />
         </Routes>
       </BrowserRouter>
     </div>

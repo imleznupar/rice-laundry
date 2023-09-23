@@ -5,25 +5,25 @@ import { queryFirestoreCollectionById } from '../handle/handlequery';
 
 function WasherDetails() {
     const [queryResults, setQueryResults] = useState([]);
+    const [selectedStatus, setSelectedStatus] = useState("0"); // Initial selected status
     const { id } = useParams();
 
-  const handleUpdateStatus = async (id,cur) => {
+  const handleUpdateStatus = async () => {
     console.log("handle update status")
     try {
-      var newStatus = 1; 
-      if (cur == 1) {
-        console.log("hi")
-        newStatus = 0
-      }
-      const documentId = id; // Replace with the ID of the machine document to update
-      console.log(id,newStatus)
-      await updateMachineStatus(documentId, newStatus);
+      console.log(id,selectedStatus)
+      await updateMachineStatus(id, parseInt(selectedStatus));
       alert('Machine status updated from to successfully');
       window.location.reload();
     } catch (error) {
       console.error('Error updating machine status:', error);
     }
   };
+
+  const handleChangeStatus = (event) => {
+    setSelectedStatus(event.target.value);
+  };
+
 
   const fetchData = async () => {
     try {
@@ -40,15 +40,29 @@ function WasherDetails() {
   }, []);
 
   return (
-    <div>
-      <h2>Washer Details</h2>
-      {console.log(queryResults)}
-      <p>{queryResults.type} {queryResults.number}</p>
-      <p>Status: {queryResults.status}</p>
-      <button onClick={() => handleUpdateStatus(id, queryResults.status)}>
-        Update Status
-      </button>
-    </div>
+    <html>
+            <head>
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+                <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet"/>
+            </head>
+
+            <div class = "center">
+                <img class = "lovett-logo" src="../../logos/Lovett\ Logo.jpeg"/>
+                <h2>{queryResults.type} {queryResults.number}</h2>
+                <h2>Current Status: {queryResults.status}</h2>
+                <form>
+                    <label>Change Status:</label>
+                    <select onChange={handleChangeStatus}>
+                        <option value="0">available</option>
+                        <option value="1">in use</option>
+                        <option value="2">broken</option>
+                    </select>
+                    <br/>
+                </form>
+                <button onClick={handleUpdateStatus}> change! </button>
+            </div>
+        </html>
   );
 }
 
