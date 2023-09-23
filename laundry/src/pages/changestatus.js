@@ -34,8 +34,7 @@ export default function changestatus() {
                 <br></br>
                     <input class = "button2" type="submit" value="Change!"></input>
                     
-                    </form>
-
+            </form>
             </div>
         </html>
     )

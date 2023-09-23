@@ -22,7 +22,7 @@ function App() {
           <Route path="/changestatus" element = {<Changestatus />}/>
           <Route path="/test/log" element = {<Log />}/>
           <Route path="/CollegeLaundryRoom" element = {<CollegeLaundryRoom />}/>
-          <Route exact path="/washer-details/:id" element={<WasherDetails />} />
+          <Route exact path="/machine-details/:id" element={<WasherDetails />} />
 
         </Routes>
       </BrowserRouter>

@@ -42,6 +42,17 @@ function Test() {
         marginBottom: '20px',
     };
   
+    const default_status = {
+        position: 'relative',
+        backgroundColor: '#000000',
+        color: '#fff',
+        border: 'none',
+        padding: '40px 30px',
+        fontSize: '16px',
+        width: '200px',
+        cursor: 'pointer',
+        marginBottom: '20px',
+    };
 
   // State to store the query results
   const [queryWasherResults, setQueryWasherResults] = useState([]);
@@ -108,38 +119,46 @@ function Test() {
             <Link
                 key={index}
                 to={{
-                pathname: `/washer-details/${result.id}`,
-                state: {
-                    type: result.type,
-                    number: result.number,
-                    status: result.status,
-                },
+                pathname: `/machine-details/${result.id}`,
                 }}
             >
-                <button style={result.status === 0 ? status_0 : status_1}>
+                <button style={
+                    result.status === 0
+                    ? status_0
+                    : result.status === 1
+                    ? status_1
+                    : result.status === 2
+                    ? status_2
+                    : default_status 
+                }>
                 <p>{result.type} {result.number}</p>
                 <p>Status: {result.status}</p>
                 </button>
             </Link>
-            //   <button style={result.status === 0 ? status_0 : status_1}>
-            //       <p>{result.type} {result.number}</p>
-            //       <p>Status: {result.status}</p>
-            //       <button onClick={() => handleUpdateStatus(result.id, result.status)}>
-            //           Update Status
-            //       </button>
-            //   </button>
             ))}
             
 
           <h3>Dryer</h3>
             {queryDryerResults.map((result, index) => (
-              <button style={result.status === 0 ? status_0 : status_1}>
-                  <p>{result.type} {result.number}</p>
-                  <p>Status: {result.status}</p>
-                  <button onClick={() => handleUpdateStatus(result.id, result.status)}>
-                      Update Status
-                  </button>
-              </button>
+              <Link
+                key={index}
+                to={{
+                pathname: `/machine-details/${result.id}`,
+                }}
+            >
+                <button style={
+                    result.status === 0
+                    ? status_0
+                    : result.status === 1
+                    ? status_1
+                    : result.status === 2
+                    ? status_2
+                    : default_status 
+                }>
+                <p>{result.type} {result.number}</p>
+                <p>Status: {result.status}</p>
+                </button>
+            </Link>
             ))}
         </>
       )}
