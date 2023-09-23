@@ -7,6 +7,7 @@ import Test from "./pages/Test";
 import Log from "./pages/Log";
 import Changestatus from "./pages/changestatus"
 import WasherDetails from './pages/WasherDetails';
+import CollegeLaundryRoom from './pages/CollegeLaundryRoom'
 
 function App() {
   return (
@@ -20,7 +21,9 @@ function App() {
           <Route path="/Log" element = {<Log />}/>
           <Route path="/changestatus" element = {<Changestatus />}/>
           <Route path="/test/log" element = {<Log />}/>
+          <Route path="/CollegeLaundryRoom" element = {<CollegeLaundryRoom />}/>
           <Route exact path="/washer-details/:id" element={<WasherDetails />} />
+
         </Routes>
       </BrowserRouter>
     </div>
