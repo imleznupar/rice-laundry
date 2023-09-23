@@ -3,9 +3,49 @@ import { queryFirestoreCollectionByCollege } from '../handle/handlequery'; // Im
 import { updateMachineStatus } from '../handle/handleupdate'; // Import the updateMachineStatus function
 
 function Test() {
+    const status_1 = {
+        position: 'relative',
+        backgroundColor: '#D30000',
+        color: '#fff',
+        border: 'none',
+        padding: '40px 30px',
+        fontSize: '16px',
+        width: '200px',
+        cursor: 'pointer',
+        marginBottom: '20px',
+    };
+
+    const status_0 = {
+        position: 'relative',
+        backgroundColor: '#3CB043',
+        color: '#fff',
+        border: 'none',
+        padding: '40px 30px',
+        fontSize: '16px',
+        width: '200px',
+        cursor: 'pointer',
+        marginBottom: '20px',
+    };
+
+    const status_2 = {
+        position: 'relative',
+        backgroundColor: '#FBEC5D',
+        color: '#fff',
+        border: 'none',
+        padding: '40px 30px',
+        fontSize: '16px',
+        width: '200px',
+        cursor: 'pointer',
+        marginBottom: '20px',
+    };
+  
+
   // State to store the query results
   const [queryWasherResults, setQueryWasherResults] = useState([]);
   const [queryDryerResults, setQueryDryerResults] = useState([]);
+  const [loading, setLoading] = useState(true); // State to track loading status
+  const [popupVisible, setPopupVisible] = useState(false); // State to control popup visibility
+
 
   // Function to fetch and set the query results
   const fetchData = async () => {
@@ -14,8 +54,10 @@ function Test() {
       const results = await queryFirestoreCollectionByCollege(college);
       setQueryWasherResults(results[0]);
       setQueryDryerResults(results[1]);
+      setLoading(false); 
     } catch (error) {
       console.error('Error fetching data:', error);
+      setLoading(false); 
     }
   };
 
@@ -36,6 +78,11 @@ function Test() {
     }
   };
 
+  const togglePopup = () => {
+    setPopupVisible(!popupVisible);
+  };
+
+
   // Fetch data when the component mounts
   useEffect(() => {
     fetchData();
@@ -44,29 +91,34 @@ function Test() {
   return (
     <div>
       <h1>Test</h1>
-        <h3>Washer</h3>
-        <ul>
-            {queryWasherResults.map((result, index) => (
-                <li key={index}>
-                    <p>Type: {result.type}</p>
-                    <p>Number: {result.number}</p>
-                    <p>Status: {result.status}</p>
-                    <p>College: {result.college}</p>
-                    <button onClick={() => handleUpdateStatus(result.id,result.status)}>Update Status</button>
-                </li>
+      {loading ? ( // Display loading screen while loading is true
+        <div>Loading...</div>
+      ) : (
+        <>
+          <h3>Washer</h3>
+          {queryDryerResults.map((result, index) => (
+              <button style={result.status === 0 ? status_0 : status_1}>
+                  <p>{result.type} {result.number}</p>
+                  <p>Status: {result.status}</p>
+                  <button onClick={() => handleUpdateStatus(result.id, result.status)}>
+                      Update Status
+                  </button>
+              </button>
             ))}
-        </ul>
-        <h3>Dryer</h3>
-        <ul>
+            
+
+          <h3>Dryer</h3>
             {queryDryerResults.map((result, index) => (
-                <li key={index}>
-                    <p>Type: {result.type}</p>
-                    <p>Number: {result.number}</p>
-                    <p>Status: {result.status}</p>
-                    <p>College: {result.college}</p>
-                </li>
+              <button style={result.status === 0 ? status_0 : status_1}>
+                  <p>{result.type} {result.number}</p>
+                  <p>Status: {result.status}</p>
+                  <button onClick={() => handleUpdateStatus(result.id, result.status)}>
+                      Update Status
+                  </button>
+              </button>
             ))}
-        </ul>
+        </>
+      )}
     </div>
   );
 }
