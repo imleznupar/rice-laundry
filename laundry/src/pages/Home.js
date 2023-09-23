@@ -2,7 +2,7 @@
 import './home.css'
 import React, { useState } from 'react';
 
-export default function Lovett() {
+export default function Home() {
 
     const [selectedCollege, setSelectedCollege] = useState('baker'); // State to store the selected college
 
