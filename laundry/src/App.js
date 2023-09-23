@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Lovett from "./pages/Lovett";
 import Test from "./pages/Test";
 import Log from "./pages/Log";
+import Changestatus from "./pages/changestatus"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/Lovett" element = {<Lovett />}/>
           <Route path="/Test" element = {<Test />}/>
           <Route path="/Log" element = {<Log />}/>
+          <Route path="/changestatus" element = {<Changestatus />}/>
         </Routes>
       </BrowserRouter>
     </div>
