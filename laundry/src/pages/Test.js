@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { queryFirestoreCollectionByCollege } from '../handle/handlequery'; // Import your Firestore query function
 import { updateMachineStatus } from '../handle/handleupdate'; // Import the updateMachineStatus function
 import Log from './Log'; // Import the Popup component
+import { Link } from 'react-router-dom';
+
 
 function Test() {
     const status_1 = {
@@ -91,24 +93,41 @@ function Test() {
   // Fetch data when the component mounts
   useEffect(() => {
     fetchData();
-  }, []); // The empty dependency array ensures the data is fetched only once on mount
+  }, []);
 
   return (
     <div>
       <h1>Test</h1>
+      <a href="./test/log">where is my clothes?</a>
       {loading ? ( // Display loading screen while loading is true
         <div>Loading...</div>
       ) : (
         <>
           <h3>Washer</h3>
-          {queryDryerResults.map((result, index) => (
-              <button style={result.status === 0 ? status_0 : status_1}>
-                  <p>{result.type} {result.number}</p>
-                  <p>Status: {result.status}</p>
-                  <button onClick={() => handleUpdateStatus(result.id, result.status)}>
-                      Update Status
-                  </button>
-              </button>
+          {queryWasherResults.map((result, index) => (
+            <Link
+                key={index}
+                to={{
+                pathname: `/washer-details/${result.id}`,
+                state: {
+                    type: result.type,
+                    number: result.number,
+                    status: result.status,
+                },
+                }}
+            >
+                <button style={result.status === 0 ? status_0 : status_1}>
+                <p>{result.type} {result.number}</p>
+                <p>Status: {result.status}</p>
+                </button>
+            </Link>
+            //   <button style={result.status === 0 ? status_0 : status_1}>
+            //       <p>{result.type} {result.number}</p>
+            //       <p>Status: {result.status}</p>
+            //       <button onClick={() => handleUpdateStatus(result.id, result.status)}>
+            //           Update Status
+            //       </button>
+            //   </button>
             ))}
             
 

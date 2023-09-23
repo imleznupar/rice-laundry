@@ -6,6 +6,7 @@ import Lovett from "./pages/Lovett";
 import Test from "./pages/Test";
 import Log from "./pages/Log";
 import Changestatus from "./pages/changestatus"
+import WasherDetails from './pages/WasherDetails';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           <Route path="/Test" element = {<Test />}/>
           <Route path="/Log" element = {<Log />}/>
           <Route path="/changestatus" element = {<Changestatus />}/>
+          <Route path="/test/log" element = {<Log />}/>
+          <Route exact path="/washer-details/:id" element={<WasherDetails />} />
         </Routes>
       </BrowserRouter>
     </div>
