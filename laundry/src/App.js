@@ -10,6 +10,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element = {<Home />}/>
+          <Route path="/home" element = {<Home />}/>
+          <Route path="/Lovett" element = {<Lovett />}/>
         </Routes>
       </BrowserRouter>
     </div>
