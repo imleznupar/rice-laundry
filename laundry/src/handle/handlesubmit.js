@@ -1,18 +1,19 @@
-import { addDoc, collection } from "@firebase/firestore"
-import { firestore } from "../firebase_setup/firebase"
- 
-const handleSubmit = (testdata) => {
-    const ref = collection(firestore, "test_data") // Firebase creates this automatically
- 
-    let data = {
-        testData: testdata
-    }
-    
-    try {
-        addDoc(ref, data)
-    } catch(err) {
-        console.log(err)
-    }
-}
- 
-export default handleSubmit
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { firestore } from "../firebase_setup/firebase";
+
+const handleSubmit = async (newLog) => {
+  try {
+    const logsCollectionRef = collection(firestore, 'logs');
+    const newLogEntry = {
+      ...newLog,
+      timestamp: serverTimestamp(),
+    };
+    await addDoc(logsCollectionRef, newLogEntry);
+    return true; // Return true to indicate success
+  } catch (error) {
+    console.error('Error adding log entry:', error);
+    return false; // Return false to indicate failure
+  }
+};
+
+export  {handleSubmit};
