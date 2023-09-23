@@ -1,0 +1,33 @@
+
+.home-logo {
+    width: 200px;
+    height: 227.848px;
+    flex-shrink: 0;
+  }
+  
+.center {
+    font-family: 'Inclusive Sans', sans-serif;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align:center;
+  }
+
+.button{
+    font-family: 'Inclusive Sans', sans-serif;
+    border-radius: 10px;
+    background: #5483F5;
+    width: 10rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #fff;
+    margin-top: 1.5rem
+}

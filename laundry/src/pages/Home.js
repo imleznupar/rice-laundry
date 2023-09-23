@@ -1,11 +1,17 @@
-import Header from "../components/Header"
 
+import './home.css'
 export default function Lovett() {
     return (
-        <>
-            <Header />
+        <html>
+            <head>
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+                <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet"/>
+            </head>
+
+            <div class = "center">
             <h2>Welcome to Laundry @ Rice</h2>
-            <img src="Rice Laundry Logo" alt="logo" />
+            <img class = "home-logo" src="../../logo.jpg"/>
             <h4>Find out which machines are available!</h4>
             <form action="/action_page.php">
                 <label for="res coll">Residential College:</label>
@@ -23,10 +29,11 @@ export default function Lovett() {
                     <option value="duncan">Duncan</option>
                 </select>
                 <br></br>
-                    <input type="submit" value="START!"></input>
+                    <input class = "button" type="submit" value="START!"></input>
                     </form>
                     
 
-                </>
+            </div>
+            </html>
                     )
 }

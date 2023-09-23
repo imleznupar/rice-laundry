@@ -5,7 +5,7 @@ export default function Lovett() {
         <>
             <Header />
             <h2>Lovett</h2>
-
+            
         </>
     )
 }
