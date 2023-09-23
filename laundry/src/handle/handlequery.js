@@ -29,6 +29,7 @@ async function queryFirestoreCollectionByCollege(college) {
     querySnapshot.forEach((doc) => {
       // Access the data of each document
       const data = doc.data();
+      data.id = doc.id;
       results1.push(data);
     });
 
@@ -38,6 +39,7 @@ async function queryFirestoreCollectionByCollege(college) {
     querySnapshot2.forEach((doc) => {
       // Access the data of each document
       const data = doc.data();
+      data.id = doc.id;
       results2.push(data);
     });
 
