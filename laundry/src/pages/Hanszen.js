@@ -2,11 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { queryFirestoreCollectionByCollege } from '../handle/handlequery'; // Import your Firestore query function
 import { updateMachineStatus } from '../handle/handleupdate'; // Import the updateMachineStatus function
-import Log from './Log'; 
+import Log from './Log'; // Import the Popup component
 import { Link } from 'react-router-dom';
 import './college.css'
 
-export default function Lovett() {
+export default function Hanszen() {
     const redButtonStyle = {
         borderRadius: '15px',
         position: 'relative',
@@ -59,14 +59,24 @@ export default function Lovett() {
         
     }
 
-  const [queryWasherResults, setQueryWasherResults] = useState([]);
+    const [queryWasherResults, setQueryWasherResults] = useState([]);
   const [queryDryerResults, setQueryDryerResults] = useState([]);
   const [loading, setLoading] = useState(true); // State to track loading status
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+
+  const openPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
 
   // Function to fetch and set the query results
   const fetchData = async () => {
     try {
-      const college = 'lovett'; // Replace with the college you want to filter by
+      const college = 'hanszen'; // Replace with the college you want to filter by
       const results = await queryFirestoreCollectionByCollege(college);
       setQueryWasherResults(results[0]);
       setQueryDryerResults(results[1]);
@@ -96,10 +106,10 @@ export default function Lovett() {
 
         <div class="container">
             <div class = "header">
-                <h2 class="title">Lovett's Laundry Room</h2>
+                <h2 class="title">Hanszen's Laundry Room</h2>
                 <Link
                             to={{
-                            pathname: `/logs/lovett`,
+                            pathname: `/logs/hanszen`,
                             }}
                         >
                             <a class="log">

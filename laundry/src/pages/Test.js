@@ -3,12 +3,14 @@ import { queryFirestoreCollectionByCollege } from '../handle/handlequery'; // Im
 import { updateMachineStatus } from '../handle/handleupdate'; // Import the updateMachineStatus function
 import Log from './Log'; // Import the Popup component
 import { Link } from 'react-router-dom';
+import './college.css'
 
 
 function Test() {
     const status_1 = {
+        borderRadius: '15px',
         position: 'relative',
-        backgroundColor: '#D30000',
+        backgroundImage: 'linear-gradient(to right, #F22222, #fff)',
         color: '#fff',
         border: 'none',
         padding: '40px 30px',
@@ -16,11 +18,14 @@ function Test() {
         width: '200px',
         cursor: 'pointer',
         marginBottom: '20px',
+        borderStyle: 'ridge',
+        borderColor: '#D3D3D3'
     };
 
     const status_0 = {
+        borderRadius: '15px',
         position: 'relative',
-        backgroundColor: '#3CB043',
+        backgroundImage: 'linear-gradient(to right, #18D914, #fff)',
         color: '#fff',
         border: 'none',
         padding: '40px 30px',
@@ -28,11 +33,14 @@ function Test() {
         width: '200px',
         cursor: 'pointer',
         marginBottom: '20px',
+        borderStyle: 'ridge',
+        borderColor: '#D3D3D3'
     };
 
     const status_2 = {
+        borderRadius: '15px',
         position: 'relative',
-        backgroundColor: '#FBEC5D',
+        backgroundImage: 'linear-gradient(to right, #FFE03E, #fff)',
         color: '#fff',
         border: 'none',
         padding: '40px 30px',
@@ -40,6 +48,8 @@ function Test() {
         width: '200px',
         cursor: 'pointer',
         marginBottom: '20px',
+        borderStyle: 'ridge',
+        borderColor: '#D3D3D3'
     };
   
     const default_status = {
@@ -130,7 +140,7 @@ function Test() {
                     : result.status === 2
                     ? status_2
                     : default_status 
-                }>
+                } className="custom-button">
                 <p>{result.type} {result.number}</p>
                 <p>Status: {result.status}</p>
                 </button>

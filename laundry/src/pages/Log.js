@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { queryLogsByCollege } from "../handle/handlelogs"
 import { handleSubmit } from '../handle/handlesubmit';
+import { useParams } from 'react-router-dom';
 
 export default function Log() {
 
+    const {college} = useParams()
     const [queryResults, setQueryResults] = useState([]);
     const [loading, setLoading] = useState(true);
     const [newLog, setNewLog] = useState({
         from: '',
         to: '',
-        college: 'lovett',
+        college: '',
         timestamp: '', 
       });
 
     const fetchData = async () => {
         console.log("fetch dataing")
         try {
-          const college = 'lovett'; // Replace with the college you want to filter by
           const results = await queryLogsByCollege(college);
           setQueryResults(results);
           setLoading(false); 
