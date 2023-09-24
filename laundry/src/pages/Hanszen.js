@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { queryFirestoreCollectionByCollege } from '../handle/handlequery'; // Import your Firestore query function
 import { updateMachineStatus } from '../handle/handleupdate'; // Import the updateMachineStatus function
-import Log from './Log'; // Import the Popup component
+import Log from './Log'; 
 import { Link } from 'react-router-dom';
 import './college.css'
 
@@ -59,19 +59,9 @@ export default function Hanszen() {
         
     }
 
-    const [queryWasherResults, setQueryWasherResults] = useState([]);
+  const [queryWasherResults, setQueryWasherResults] = useState([]);
   const [queryDryerResults, setQueryDryerResults] = useState([]);
   const [loading, setLoading] = useState(true); // State to track loading status
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-
-  const openPopup = () => {
-    setIsPopupOpen(true);
-  };
-
-  const closePopup = () => {
-    setIsPopupOpen(false);
-  };
 
   // Function to fetch and set the query results
   const fetchData = async () => {
@@ -146,7 +136,7 @@ export default function Hanszen() {
                                 ? "In Use"
                                 : result.status === 2
                                 ? "Broken"
-                                : greenButtonStyle}</span>
+                                : "Other"}</span>
                             </button>
                         </Link>
                     ))}

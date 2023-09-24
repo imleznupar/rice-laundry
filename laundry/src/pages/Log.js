@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 
 export default function Log() {
 
-    const {college} = useParams()
+    const { college } = useParams()
     const [queryResults, setQueryResults] = useState([]);
     const [loading, setLoading] = useState(true);
     const [newLog, setNewLog] = useState({
@@ -17,6 +17,7 @@ export default function Log() {
 
     const fetchData = async () => {
         console.log("fetch dataing")
+        console.log( college )
         try {
           const results = await queryLogsByCollege(college);
           setQueryResults(results);
@@ -30,15 +31,17 @@ export default function Log() {
       const handleFormSubmit = async (e) => {
         e.preventDefault();
         const currentTimestamp = new Date().toLocaleString();
-        setNewLog({ ...newLog, timestamp: currentTimestamp });
-        const success = await handleSubmit(newLog);
+        console.log("submit")
+        console.log({ ...newLog, timestamp: currentTimestamp, college: college })
+        setNewLog({ ...newLog, timestamp: currentTimestamp, college: college });
+        const success = await handleSubmit(newLog,college);
     
         if (success) {
           // Clear the form fields if the submission is successful
           setNewLog({
             from: '',
             to: '',
-            college: 'lovett',
+            college: '',
             timestamp: '', 
           });
           alert('New log entry added successfully');
