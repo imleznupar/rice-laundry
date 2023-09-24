@@ -48,8 +48,8 @@ function WasherDetails() {
             </head>
 
             <div class = "center">
-                <img class = "lovett-logo" src="../../logos/Lovett Logo.jpeg"/>
                 <h2>{queryResults.type} {queryResults.number}</h2>
+                <img class = "lovett-logo" src={`../../logos/${queryResults.college} Logo.jpeg`}/>
                 <h2>Current Status: {queryResults.status === 0
                                 ? "Available"
                                 : queryResults.status === 1
