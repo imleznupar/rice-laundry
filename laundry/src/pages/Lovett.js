@@ -136,7 +136,7 @@ export default function Lovett() {
                                 ? "In Use"
                                 : result.status === 2
                                 ? "Broken"
-                                : greenButtonStyle}</span>
+                                : "Other"}</span>
                             </button>
                         </Link>
                     ))}
