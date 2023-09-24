@@ -1,10 +1,15 @@
+
+.header{
+    padding-top: 16%;
+    display: block
+}
 .logo {
     width: 55.3px;
     height: 63px;
     flex-shrink: 0;
     padding-top:0.75rem;
     padding-left: 0.75rem;
-
+    display:block
   }
 
 .title{
@@ -24,7 +29,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20%;
+    height: 30%;
     margin: 0;
     /* position: absolute;
     margin-left:auto;
@@ -37,6 +42,24 @@
     flex-direction:column;
     justify-content:center;
 
+}
+
+.machine-name{
+    font-family: 'Inclusive Sans', sans-serif;
+    color:black;
+    position: absolute;
+    top: 15%;
+    left:10%;
+    font-size: 20px
+}
+
+.machine-status{
+    ont-family: 'Inclusive Sans', sans-serif;
+    color:black;
+    position: absolute;
+    bottom: 15%;
+    right:10%;
+    font-size: 15px
 }
 /* .title{
     font-family: 'Inclusive Sans', sans-serif;
