@@ -26,7 +26,6 @@ function App() {
           <Route path="/CollegeLaundryRoom" element = {<CollegeLaundryRoom />}/>
           <Route path="/popupR" element = {<popupR />}/>
           <Route exact path="/machine-details/:id" element={<WasherDetails />} />
-
         </Routes>
       </BrowserRouter>
     </div>
