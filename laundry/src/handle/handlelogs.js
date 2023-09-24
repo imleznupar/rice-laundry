@@ -8,7 +8,7 @@ async function queryLogsByCollege(college) {
     const collectionRef = collection(firestore, "logs");
 
     // Create a query with a filter to match documents with a specific college
-    const q = query(collectionRef,where("college", "==", college), orderBy("timestamp"));
+    const q = query(collectionRef,where("college", "==", college), orderBy("timestamp", "desc"));
     // Query documents based on the filter
     const querySnapshot = await getDocs(q);
 

@@ -61,6 +61,11 @@
     right:10%;
     font-size: 15px
 }
+
+.tag-stripe {
+    color: #fff;
+    background: #6675e0
+}
 /* .title{
     font-family: 'Inclusive Sans', sans-serif;
     text-align:right;

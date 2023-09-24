@@ -1,5 +1,5 @@
 import { firestore } from "../firebase_setup/firebase";
-import { collection, query, where, getDocs, getDoc, doc } from "@firebase/firestore";
+import { collection, query, where, getDocs, getDoc, doc, orderBy } from "@firebase/firestore";
 
 // Define a Firestore query handler function with a filter
 async function queryFirestoreCollectionByCollege(college) {
@@ -11,12 +11,14 @@ async function queryFirestoreCollectionByCollege(college) {
     const q1 = query(
         collectionRef,
         where("college", "==", college),
-        where("type", "==", "washer")
+        where("type", "==", "washer"),
+        orderBy("number","asc")
       );
     const q2 = query(
         collectionRef,
         where("college", "==", college),
-        where("type", "==", "dryer")
+        where("type", "==", "dryer"),
+        orderBy("number","asc")
       );
     // Query documents based on the filter
     const querySnapshot = await getDocs(q1);
