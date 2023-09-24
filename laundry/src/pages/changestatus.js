@@ -11,7 +11,7 @@ export default function changestatus() {
             </head>
 
             <div class = "center">
-            <img class = "lovett-logo" src="../../logos/Lovett\ Logo.jpeg"/>
+            <img class = "lovett-logo" src="../../logos/Lovett Logo.jpeg"/>
             <h2>Washer 1</h2>
             <form action="/action_page.php">
                 <label for="changestatus">Change Status:</label>
@@ -21,7 +21,7 @@ export default function changestatus() {
                     <option value="Unavailable">Unavailable</option>
                 </select>
                 <br></br>
-                    <input class = "button1" type="submit" value="Change!"></input>
+                    <input class = "button" type="submit" value="Change!"></input>
                 
                     </form>
                     <form action="/action_page.php">
@@ -32,7 +32,7 @@ export default function changestatus() {
                     <option value="Unavailable">Dryer 3</option>
                 </select>
                 <br></br>
-                    <input class = "button2" type="submit" value="Change!"></input>
+                    <input class = "button" type="submit" value="Change!"></input>
                     
             </form>
             </div>

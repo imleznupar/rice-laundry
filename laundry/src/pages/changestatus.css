@@ -16,7 +16,18 @@
     padding: 10px;
     text-align:center;
   }
-
+  .button{
+    font-family: 'Inclusive Sans', sans-serif;
+    border-radius: 10px;
+    background: #5483F5;
+    width: 5rem;
+    flex-shrink: 0;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #fff;
+}
 /* .button1{
     font-family: 'Inclusive Sans', sans-serif;
     border-radius: 5px;
