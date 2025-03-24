@@ -33,4 +33,4 @@ In the database, two collections are stored, machine and log. Each machine will 
 ## Acknowledgements
 * This project was made for [HackRice 13](https://devpost.com/software/laundry-rice)
 
-For further inquiries, please contact jasminelu23@gmail.com
+For further inquiries, please contact leznuparutube@gmail.com
